@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Menu Card</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+  <script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+
+ <!-- Local StyleSheet -->
+ <link href="./style.css" rel="stylesheet" />
+
+ <!-- SweetAlert -->
+ <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+ <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
+
+  <script> 
+  const firebaseConfig = {
+  apiKey: "AIzaSyBnXzrAzEP_ZdiOt0zshuPIkkyY6_QtUD4",
+  authDomain: "ar-toy-store-49d73.firebaseapp.com",
+  projectId: "ar-toy-store-49d73",
+  storageBucket: "ar-toy-store-49d73.appspot.com",
+  messagingSenderId: "710314435459",
+  appId: "1:710314435459:web:ce31dfab03cbf17cf38cb6"
+  };
+  
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);  
+  
+  </script>
+  
+  <!--Marker Handler Src-->
+  <script src = "./js/addButtons.js"></script>
+  <script src = "./js/markerHandler.js"></script>
+  <script src = "./js/addMarkers.js"></script>
+
+</head>
+
+<body style="margin : 0px; overflow: hidden;">
+
+  <a-scene id = "main-scene"
+    embedded vr-mode-ui="enabled: false"     
+    arjs="sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960;debugUIEnabled: false;"
+    gesture-detector create-buttons create-markers>
+
+    <!-- Camera -->
+    <a-entity camera></a-entity>
+
+    <!--a-assets>
+    <a-asset-item id = "crane-model" src = "assets/mobile_crane_ii_wooden_toy/scene.gltf">
+    </a-asset-item>
+    </a-assets>
+    
+    <a-marker type = "pattern" id = "crane-marker" marker-handler url = "./assets/T01/pattern-crane.patt" cursor = "rayOrigin: mouse">
+    <a-entity id = "crane-3d-model" position = "-2.3 0 0.5" rotation = "-90 0 0" scale = "5 5 5" gltf-model = "#crane-model" gesture-handler>
+    </a-entity>
+    <a-plane position = "0 0 0" rotation = "-90 0 0" width = "2.3" height = "1.5">
+    <a-plane position = "0 0.89 0.02" width = "2.29" height = "0.3" rotation = "0 0 0" color = "#f0c305">
+    <a-entity position = "0 0 0.1" rotation = "0 0 0" text = "font: monoid; value: Hydraulic Crane; color: black; width: 2; height: 5; align: center"></a-entity>
+    </a-plane>
+    <a-entity position = "0 0 0.1" rotation = "0 0 0" text = "font: monoid; color: black; width: 2; height: 5; align: center; value: PULL BACK AND GO: Friction powered crane truck toy, 360-degree rotating left and right, machine can pull up & down, swing left & right. High Quality Material: FunBlast crane toy is made of 100% high-quality abs plastics and metal shovel which is durable, light and Non-Toxic with strong crash resistance \n\n Age: 8-10 yrs"></a-entity>
+    </a-plane>
+    </a-marker-->
+    
+    
+  </a-scene>
+
+  <!-- Button Main Div -->
+  <div id = "button-div"></div>
+ 
+</body>
+
+</html>
